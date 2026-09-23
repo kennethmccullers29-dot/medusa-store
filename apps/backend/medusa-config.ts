@@ -10,6 +10,8 @@ module.exports = defineConfig({
     },
   ],
   admin: {
+    backendUrl: process.env.MEDUSA_BACKEND_URL,
+    disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
     vite: (config) => ({
       resolve: {
         ...config.resolve,
@@ -82,6 +84,8 @@ module.exports = defineConfig({
   ],
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
+    redisUrl: process.env.REDIS_URL,
+    workerMode: (process.env.MEDUSA_WORKER_MODE || "shared") as "shared" | "server" | "worker",
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,

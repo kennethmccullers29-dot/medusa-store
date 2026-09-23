@@ -2,6 +2,7 @@ import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { Button, Container, Heading, Input, Label, Switch, Text, toast } from "@medusajs/ui"
 import { useEffect, useState } from "react"
 import { sdk } from "../../lib/sdk"
+import { studioUrl } from "../../lib/storefront-url"
 
 type NavigationLink = { label: string; url: string; enabled: boolean }
 type Settings = { navigation_links: NavigationLink[]; [key: string]: unknown }
@@ -66,7 +67,7 @@ const NavigationPage = () => {
       <div className="rounded-lg border bg-ui-bg-subtle p-5">
         <Heading level="h2">Editing the website?</Heading>
         <Text className="mt-2 text-ui-fg-subtle">Use Sanity Studio for the site name, logo, homepage, pages, journal, and shipping information. Create a page there, then add its path to the navigation here.</Text>
-        <a className="mt-3 inline-block font-medium underline" href="http://localhost:8000/studio/structure" target="_blank" rel="noopener noreferrer">Open Sanity Studio</a>
+        <a className="mt-3 inline-block font-medium underline" href={studioUrl} target="_blank" rel="noopener noreferrer">Open Sanity Studio</a>
       </div>
       {error && <Text className="text-ui-fg-error" role="alert">{error}</Text>}
       {!settings ? <div><Text>{error ? "Navigation unavailable." : "Loading navigation…"}</Text>{error && <Button className="mt-3" onClick={load}>Try again</Button>}</div> :

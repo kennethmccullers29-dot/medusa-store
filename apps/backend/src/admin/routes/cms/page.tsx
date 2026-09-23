@@ -1,8 +1,8 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { Container, Heading, Text } from "@medusajs/ui"
 import { Link } from "react-router-dom"
+import { studioUrl } from "../../lib/storefront-url"
 
-const studio = "http://localhost:8000/studio/structure"
 const CmsPage = () => <Container className="p-0">
   <div className="border-b px-6 py-4">
     <Heading level="h1">Website content</Heading>
@@ -12,7 +12,7 @@ const CmsPage = () => <Container className="p-0">
     <div className="rounded-lg border bg-ui-bg-subtle p-5">
       <Heading level="h2">Edit in Sanity</Heading>
       <Text className="mt-2 text-ui-fg-subtle">Manage the homepage, page sections, journal posts, site name, logo, contact information, and policy pages in Sanity Studio. Publish a page to make it live.</Text>
-      <a href={studio} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-medium underline">Open Sanity Studio</a>
+      <a href={studioUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-medium underline">Open Sanity Studio</a>
     </div>
     <div className="rounded-lg border p-5">
       <Heading level="h2">Pages to review</Heading>

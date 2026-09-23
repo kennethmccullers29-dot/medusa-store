@@ -2,6 +2,7 @@ import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { Button, Container, Heading, StatusBadge, Text, toast } from "@medusajs/ui"
 import { useEffect, useState } from "react"
 import { sdk } from "../../lib/sdk"
+import { studioUrl } from "../../lib/storefront-url"
 
 type Message = {
   id: string
@@ -66,7 +67,7 @@ const ContactMessagesPage = () => {
     <div className="grid max-w-4xl gap-5 px-6 py-6">
       <div className="rounded-lg border bg-ui-bg-subtle p-5">
         <Text>To edit the contact page, journal, privacy and terms pages, or other website content, use Sanity Studio.</Text>
-        <a className="mt-2 inline-block font-medium underline" href="http://localhost:8000/studio/structure" target="_blank" rel="noopener noreferrer">Open Sanity Studio</a>
+        <a className="mt-2 inline-block font-medium underline" href={studioUrl} target="_blank" rel="noopener noreferrer">Open Sanity Studio</a>
       </div>
       {error && <Text role="alert" className="text-ui-fg-error">{error}</Text>}
       {!content ? <div><Text>{error ? "Messages unavailable." : "Loading messages…"}</Text>{error && <Button className="mt-3" onClick={load}>Try again</Button>}</div>
